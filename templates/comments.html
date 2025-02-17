@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings and Comments</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .navbar-nav {
+    display: flex !important;
+}
+.navbar-nav .nav-item {
+    display: block !important;
+    visibility: visible !important;
+}
+
+        .container {
+            margin-top: 30px;
+        }
+        .rating-stars span {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .rating-stars .selected {
+            color: gold;
+        }
+        .harry{
+            padding-top:1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">TechValley</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="videos.html">Videos</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="assessment.html">Assessments</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../ortho.pptx" download>Download PowerPoint</a></li>
+                            <li><a class="dropdown-item" href="powerpoint.html">open in google docs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">help</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+</nav>
+<div class="harry"></div>
+<div class="container">
+    <!-- Header Section -->
+    <header class="text-center py-4">
+        <h1>Ratings and Comments</h1>
+        <p class="lead">Share your feedback on the Orthographic Projection tutorial</p>
+    </header>
+
+    <!-- Rating Section -->
+    <div class="rating-section">
+        <h3>Rate the tutorial:</h3>
+        <div class="rating-stars" id="rating-stars">
+            <span data-value="1">&#9733;</span>
+            <span data-value="2">&#9733;</span>
+            <span data-value="3">&#9733;</span>
+            <span data-value="4">&#9733;</span>
+            <span data-value="5">&#9733;</span>
+        </div>
+        <p id="rating-output" class="mt-2">Your rating: <strong>0</strong></p>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section mt-4">
+        <h3>Leave a comment:</h3>
+        <form id="comment-form">
+            <div class="mb-3">
+                <label for="comment" class="form-label">Your Comment</label>
+                <textarea id="comment" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <!-- Display Submitted Comments -->
+    <div class="submitted-comments mt-5">
+        <h3>Submitted Comments:</h3>
+        <ul id="comments-list" class="list-group">
+            <li class="list-group-item text-muted">No comments yet. Be the first to comment!</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript for handling rating stars
+    const stars = document.querySelectorAll('#rating-stars span');
+    const ratingOutput = document.getElementById('rating-output');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+        star.addEventListener('mouseover', () => {
+            resetStars();
+            highlightStars(star.dataset.value);
+        });
+
+        star.addEventListener('click', () => {
+            selectedRating = star.dataset.value;
+            ratingOutput.querySelector('strong').textContent = selectedRating;
+        });
+
+        star.addEventListener('mouseout', () => {
+            resetStars();
+            highlightStars(selectedRating);
+        });
+    });
+
+    function highlightStars(rating) {
+        stars.forEach(star => {
+            if (star.dataset.value <= rating) {
+                star.classList.add('selected');
+            }
+        });
+    }
+
+    function resetStars() {
+        stars.forEach(star => {
+            star.classList.remove('selected');
+        });
+    }
+
+    // JavaScript for handling comment submission
+    const commentForm = document.getElementById('comment-form');
+    const commentsList = document.getElementById('comments-list');
+
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const commentText = document.getElementById('comment').value;
+
+        if (commentText) {
+            const newComment = document.createElement('li');
+            newComment.className = 'list-group-item';
+            newComment.textContent = commentText;
+
+            if (commentsList.querySelector('.text-muted')) {
+                commentsList.innerHTML = ''; // Clear the "No comments yet" placeholder
+            }
+
+            commentsList.appendChild(newComment);
+            commentForm.reset();
+        }
+    });
+</script>
+ <!-- Footer Section -->
+ <footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Us Section -->
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email: ingotse@proton.me</p>
+                <p>Phone: +254101919385</p>
+            
+            </div>
+
+            <!-- Follow Us on Social Media -->
+            <div class="col-md-4">
+                <h5>Follow Us on Social Media</h5>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                <a href="https://wa.link/yyiyn6" class="text-white me-3"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                <a href="https://www.youtube.com/channel/UC1FA3vXiSHQmWzATrn5z2Nw" class="text-white me-3"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <!-- About Us Link -->
+                    <li><a href="#" id="openAboutModal" class="text-white">About Us</a></li>
+                    <li><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="bg-light">
+
+        <!-- Copyright -->
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 TechValley. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div>
+<!--terms modal starts here-->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3>Terms of Service</h3>
+            <p>Welcome to our tutorial website! By using our services, you agree to the following terms:</p>
+            
+            <h5>1. Use of Content</h5>
+            <p>All tutorials, videos, and resources provided on this website are for educational purposes only. You may use the content for personal learning but cannot redistribute or sell any materials without permission.</p>
+
+            <h5>2. Account Responsibility</h5>
+            <p>When creating an account, you are responsible for maintaining the confidentiality of your credentials. You are also responsible for any activities under your account.</p>
+
+            <h5>3. Community Guidelines</h5>
+            <p>We encourage respectful and constructive interactions. Harassment, hate speech, or spamming will not be tolerated, and accounts engaging in such behavior may be suspended or banned.</p>
+
+            <h5>4. Limitation of Liability</h5>
+            <p>While we strive to provide accurate and up-to-date content, we do not guarantee the completeness or accuracy of all materials. We are not liable for any issues resulting from the application of the knowledge gained from this site.</p>
+
+            <h5>5. Changes to Terms</h5>
+            <p>We may update these terms occasionally. Continued use of the website after updates means you accept the new terms.</p>
+
+            <p>If you have any questions, feel free to  
+                <button onclick="window.location.href='contact.html'" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Get Help
+                </button>
+            </p>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+            <button type="button" class="btn-close section-heading" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body section-heading">
+            <p>Your privacy is important to us. This website collects minimal user data and ensures that all information is handled securely. By using this website, you agree to the collection and use of information in accordance with this policy.</p>
+            <p>We do not share or sell user data to third parties. If you have any concerns, feel free to contact us.</p>
+        </div>
+        <div class="modal-footer section-heading">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal container for about us -->
+<div id="aboutModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+<div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+    <button id="closeAboutModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
+    
+    <h2 class="text-2xl font-bold text-center text-blue-600 mb-4">About Us</h2>
+    <p class="text-gray-700 mb-4">
+        We are a passionate team dedicated to providing high-quality educational resources and training materials.
+        Our mission is to empower learners with knowledge and skills to excel in their respective fields.
+    </p>
+    <h3 class="text-lg font-bold text-green-600">Contact Us</h3>
+    <p class="text-gray-700"><strong>Phone:</strong> +254101919385</p>
+    <p class="text-gray-700"><strong>Email:</strong> <a href="mailto:youremail@example.com" class="text-blue-500">Email: ingotse@proton.me</a></p>
+</div>
+</div>
+
+<script>
+document.getElementById("openAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.remove("hidden");
+});
+
+document.getElementById("closeAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.add("hidden");
+});
+</script>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="btn btn-primary position-fixed rounded-circle shadow-lg" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up text-white"></i>
+</button>
+
+<script>
+    // Show the button when scrolling starts
+    window.onscroll = function () {
+        document.getElementById("backToTop").style.display = "block";
+    };
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+
+<!-- Add Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+    #backToTop {
+        display: none; /* Initially hidden */
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        bottom: 20%;
+        right: 2%;
+    }
+</style>
+
+</body>
+</html>

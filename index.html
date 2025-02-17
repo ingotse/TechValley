@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthographic Projection Tutorial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+
+    <style>
+        table{
+            border-color: crimson;
+            border-spacing: 20%;
+            background-color: coral;
+        }
+        .section-heading {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: hsl(330, 88.90%, 3.50%);
+            text-align: center;
+            font-size: 1.6rem;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        body{
+            padding-left:0.7%;
+            padding-right:0.5%;
+        }
+        
+        .navbar-nav {
+            display: flex !important;
+        }
+        .navbar-nav .nav-item {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">TechValley</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="templates/videos.html">Videos</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="templates/assessment.html">Assessments</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="templates/about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="ortho.pptx" download>Download PowerPoint</a></li>
+                            <li><a class="dropdown-item" href="templates/powerpoint.html">open in google docs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="templates/contact.html">help</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+</nav>
+
+<div>
+    <!-- Header Section -->
+    <header class="text-center py-5 bg-danger-subtle">
+        <h1 class="display-4">Orthographic Projection</h1>
+        <p class="lead">A tutorial on the basics and techniques of Orthographic Projection in technical drawing</p>
+    </header>
+</div>
+
+    <!-- Introduction Section -->
+    <div class="content-section">
+        <h2 class="section-heading">Introduction</h2>
+        <p>Orthographic projection is a method of representing three-dimensional objects usually by three two-dimensional drawings in which each parallel line is drawn parallel to the plane of view.</p>
+    </div>
+
+    <!-- Expected Learning Outcomes -->
+    <div class="content-section">
+        <h2 class="section-heading">Expected Learning Outcomes</h2>
+        <ol>
+            <li>Identify and differentiate between the various views in orthographic projection.</li>
+            <li>Draw accurate orthographic projections from 3D objects, ensuring precision in dimensions and details.</li>
+            <li>Read and interpret orthographic drawings, displaying the relationship between different views and the 3D object.</li>
+            <li>Apply orthographic projection techniques to solve real-world problems, creating detailed technical drawings for engineering and architecture.</li>
+        </ol>
+    </div>
+
+    <!-- Note to the Learner -->
+    <div class="content-section">
+        <h2 class="section-heading">Note to the Learner</h2>
+        <p>The figures used in this lesson are colored for the sake of visualization to better elaborate the concepts. Do not apply color to your drawings if you are using CAD software, and do not shade your drawings if you are drawing by hand manually.</p>
+
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-5.jpg" alt="Image 1" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-6.jpg" alt="Image 2" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+
+    </div>
+
+    <!-- Types of Orthographic Projections -->
+    <div class="content-section">
+        <h2 class="section-heading">Types of Orthographic Projection</h2>
+        <p>There are two separate methods of drawing in orthographic projection:
+            the first angle projection and the third angle projection.
+            The latter method is becoming more popular throughout the world,
+            and may soon become the only accepted system in drawing.</p>
+        <p>At present, in Kenya, both methods are used. The building industry
+            mostly uses the first-angle projection, while other engineering 
+            trades prefer the third-angle projection. Consequently,
+            the learner should be conversant with both these methods and their differences.</p>
+    </div>
+<div>
+    <p>The names first angle and the third-angle are derived from mathematics.<br>
+    A derived angle is divided into four right angles thus forming four equal quadrants.<br>   
+    The first angle is from 0 to 90 degrees in the first quadrant and the third angle is from 180 degrees to 270 degrees in the third quadrant.
+    </p>
+    <div class="container">
+    <div class="row mb-4">
+        <div class="col-12 col-md-8">
+            <img src="images/Orthographic Projection-2-8.jpg" alt="Image 1" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-9.jpg" alt="Image 1" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-10.jpg" alt="Image 2" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+    <!-- Explanation of Different Views -->
+<div class="content-section">
+        <h2 class="section-heading">Views in Orthographic Projection</h2>
+        <p>The views used in orthographic projection are:</p>
+        <ol>
+            <li>Top View (Plan)</li>
+            <li>Front View (Elevation)</li>
+            <li>Side (End) View</li>
+            <li>Sectional Views</li>
+            <li>Auxiliary Views (in various situations)</li>
+        </ol>
+        <p>The front elevation displays height (H) and length (L), 
+            the end elevation displays width (W) and height (H),
+            and the plan elevation displays length (L) and width (W).</p>
+    </div>
+
+
+
+    <!-- First and Third Angle Projection -->
+    <div class="content-section">
+        <h2 class="section-heading">Forms Of Orthographic Projection</h2>
+        <p>Orthographic projection overcomes the drawbacks of difficulty in drawing circles and curves on 3-sided objects.
+            The key difference between the first and third angle projections is the relative positioning of views.</p>
+        <p>
+            <ol>
+                <li>The first angle projection: this form places the object in the first quadrant,with the plan below the front elevation and the end elevation on the left or right side.</li>
+                <li>The third angle projection: this places the object in the third quadrant,
+                    with the plan above the front elevation and the end elevation on the
+                    left or right side depending on the view.
+                </li>
+            </ol>
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-24.jpg" alt="Image 24" class="img-fluid">
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-25.jpg" alt="Image 25" class="img-fluid">
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-26.jpg" alt="Image 26" class="img-fluid">
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-27.jpg" alt="Image 27" class="img-fluid">
+        </div>
+        </div>
+    </div><div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-28.jpg" alt="Image 28" class="img-fluid">
+        </div>
+        </div>
+    </div><div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-29.jpg" alt="Image 29" class="img-fluid">
+        </div>
+        </div>
+    </div><div class="container">
+        <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-30.jpg" alt="Image 30" class="img-fluid">
+        </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="header">
+            <h>Differences between 1st angle orthographic projection and 3rd angle orthographic projection</h>
+        </div>
+        <div class="content">
+            <h2>Comparison Table</h2>
+            <div class="table-container">
+                <table class="table table-responsive table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>1st angle orthographic projection</th>
+                            <th>3rd angle orthographic projection</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1. The object is kept in the first quadrant.</td>
+                        <td>1. The object is assumed to be kept in the third quadrant.</td>
+                    </tr>
+                    <tr>
+                        <td>2. The object lies between the observer and the plane or projection.</td>
+                        <td>2. The plane of projection lies between the observer and the object.</td>
+                    </tr>
+                    <tr>
+                        <td>3. The plane of projection is assumed to be <span class="highlight">non-transparent</span>.</td>
+                        <td>3. The plane of projection is assumed to be <span class="highlight">transparent</span>.</td>
+                    </tr>
+                    <tr>
+                        <td>4. In this method, when the views are drawn in their relative positions, <span class="highlight">the plan comes below the front elevation, the view of the object as observed from the left-side is drawn to the right of elevation</span>.</td>
+                        <td>4. In this method, when the views are drawn in their relative positions, <span class="highlight">the plan comes above the front elevation, left hand side view is drawn to the left-hand side of the front elevation</span>.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Symbols in Projection -->
+    <div class="content-section">
+        <h2 class="section-heading">Projection Symbols</h2>
+        <p>It is good practice to indicate the method of projection used in your drawings 
+            to distinguish between plan and front views front drawings. The symbols are derived from the views 
+            of a conical frustum and are used to specify the method of projection (first angle or third angle).<br>
+        Below are the symbols used to represent the methods of projection:
+            <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="images/Orthographic Projection-2-32.jpg" alt="Image 32" class="img-fluid">
+                </div>
+            </div>
+            </div>
+
+
+        </p>
+    </div>
+    <strong><h9>Differences Between the first angle orthographic projection and the 3rd angle orthographic projection.</h9>
+    </strong><br>
+
+<h class="section-heading"> Derivation of the symbols(3rd angle projection) </h>
+
+<div class="container">
+    <div class="row mb-4">
+    <div class="col-12 col-md-6">
+        <img src="images/Orthographic Projection-2-33.jpg" alt="Image 33" class="img-fluid">
+    </div>
+    </div>
+</div>
+<h2 class="section-heading"> Derivation of the symbols(1st angle projection) </h2>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <img src="images/Orthographic Projection-2-34.jpg" alt="Image 34" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+    <!-- Hidden Lines in Orthographic Projection -->
+<div class="content-section">
+        <h class="section-heading">Hidden Lines in Orthographic Projection</h>
+        <p>Hidden details are represented by short dashed lines,indicating features that cannot be seen from a particular view but are necessary to define the part or assembly.Hidden lines are omitted when not needed to avoid clutter in the drawing.
+        </p>
+</div>
+<div class="container">
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <img src="images/Orthographic Projection-2-37.jpg" alt="Image 37" class="img-fluid">
+            </div>
+        </div>
+</div>
+<div class="content-section">
+    <h2 class="section-heading">Important Lines Used in Orthographic Projection</h2>
+        <p>The following lines are essential in orthographic projections:</p>
+        <ol>
+            <li>Center Lines: Represented by a long dash and a shorter dash,used to indicate the center of circular or symmetrical features.</li>
+            <li>Hidden Lines: Short dashed lines representing hidden details inside the object.</li>
+        </ol>
+</div>
+
+<div class="w-full max-w-3xl mx-auto">
+    <p><h>Frequently Asked Questions</h></p>
+    <div class="bg-gold shadow-md rounded-lg">
+        <div class="border-b">
+        <button class="w-full text-left px-4 py-3 text-xl font-semibold text-gray-800 focus:outline-none" onclick="toggleAccordion('faq-1')">
+            What is orthographic projection?
+        </button>
+        </div>
+    <div id="faq-1" class="hidden px-4 py-3 text-gray-700">
+        Orthographic projection is a method of representing three-dimensional objects in two dimensions, where the object is viewed along parallel lines that are perpendicular to the projection plane.
+    </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg mt-4">
+        <div class="border-b">
+            <button class="w-full text-left px-4 py-3 text-xl font-semibold text-gray-800 focus:outline-none" onclick="toggleAccordion('faq-2')">
+            What are the types of orthographic projections?
+            </button>
+        </div>
+    <div id="faq-2" class="hidden px-4 py-3 text-gray-700">
+        The main types of orthographic projections are first-angle projection, third-angle projection, and isometric projection.
+    </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg mt-4">
+        <div class="border-b">
+        <button class="w-full text-left px-4 py-3 text-xl font-semibold text-gray-800 focus:outline-none" onclick="toggleAccordion('faq-3')">
+            How is orthographic projection useful in engineering drawings?
+        </button>
+    </div>
+    <div id="faq-3" class="hidden px-4 py-3 text-gray-700">
+        Orthographic projection helps in accurately representing the dimensions and shapes of objects from multiple viewpoints (top, front, side) to aid in manufacturing or construction.
+    </div>
+    </div>
+</div>  
+<script>
+    function toggleAccordion(faqId) {      
+        const faqContent = document.getElementById(faqId);
+            faqContent.classList.toggle('hidden');
+    }
+</script>  
+
+
+<center>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center rounded-toolbar">
+            <div class="btn-group">
+                <button class="btn btn-outline-primary"><a href="templates/comments.html">click to Comment</a></button>
+            </div>
+        </div>
+    </div>
+</center>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Us Section -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: ingotse@proton.me</p>
+                    <p>Phone: +254101919385</p>
+                    
+                </div>
+    
+                <!-- Follow Us on Social Media -->
+                <div class="col-md-4">
+                    <h5>Follow Us on Social Media</h5>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    <a href="https://wa.link/yyiyn6" class="text-white me-3"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                    <a href="https://www.youtube.com/channel/UC1FA3vXiSHQmWzATrn5z2Nw" class="text-white me-3"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <!-- About Us Link -->
+                        <li><a href="#" id="openAboutModal" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <hr class="bg-light">
+    
+            <!-- Copyright -->
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 TechValley. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!--terms modal starts here-->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Terms of Service</h3>
+                <p>Welcome to our tutorial website! By using our services, you agree to the following terms:</p>
+                
+                <h5>1. Use of Content</h5>
+                <p>All tutorials, videos, and resources provided on this website are for educational purposes only. You may use the content for personal learning but cannot redistribute or sell any materials without permission.</p>
+
+                <h5>2. Account Responsibility</h5>
+                <p>When creating an account, you are responsible for maintaining the confidentiality of your credentials. You are also responsible for any activities under your account.</p>
+
+                <h5>3. Community Guidelines</h5>
+                <p>We encourage respectful and constructive interactions. Harassment, hate speech, or spamming will not be tolerated, and accounts engaging in such behavior may be suspended or banned.</p>
+
+                <h5>4. Limitation of Liability</h5>
+                <p>While we strive to provide accurate and up-to-date content, we do not guarantee the completeness or accuracy of all materials. We are not liable for any issues resulting from the application of the knowledge gained from this site.</p>
+
+                <h5>5. Changes to Terms</h5>
+                <p>We may update these terms occasionally. Continued use of the website after updates means you accept the new terms.</p>
+
+                <p>If you have any questions, feel free to  
+                    <button onclick="window.location.href='templates/contact.html'" 
+                            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                        Get Help
+                    </button>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                <button type="button" class="btn-close section-heading" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body section-heading">
+                <p>Your privacy is important to us. This website collects minimal user data and ensures that all information is handled securely. By using this website, you agree to the collection and use of information in accordance with this policy.</p>
+                <p>We do not share or sell user data to third parties. If you have any concerns, feel free to contact us.</p>
+            </div>
+            <div class="modal-footer section-heading">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal container for about us -->
+<div id="aboutModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+        <button id="closeAboutModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
+        
+        <h2 class="text-2xl font-bold text-center text-blue-600 mb-4">About Us</h2>
+        <p class="text-gray-700 mb-4">
+            We are a passionate team dedicated to providing high-quality educational resources and training materials.
+            Our mission is to empower learners with knowledge and skills to excel in their respective fields.
+        </p>
+        <h3 class="text-lg font-bold text-green-600">Contact Us</h3>
+        <p class="text-gray-700"><strong>Phone:</strong> +254101919385</p>
+        <p class="text-gray-700"><strong>Email:</strong> <a href="mailto:Email: ingotse@proton.me" class="text-blue-500">Email: ingotse@proton.me</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("openAboutModal").addEventListener("click", () => {
+        document.getElementById("aboutModal").classList.remove("hidden");
+    });
+    
+    document.getElementById("closeAboutModal").addEventListener("click", () => {
+        document.getElementById("aboutModal").classList.add("hidden");
+    });
+</script>
+<!-- Back to Top Button -->
+<button id="backToTop" class="btn btn-primary position-fixed rounded-circle shadow-lg" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up text-white"></i>
+</button>
+
+<script>
+    // Show the button when scrolling starts
+    window.onscroll = function () {
+        document.getElementById("backToTop").style.display = "block";
+    };
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+
+<!-- Add Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+    #backToTop {
+        display: none; /* Initially hidden */
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        bottom: 20%;
+        right: 2%;
+    }
+</style>
+
+
+<!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

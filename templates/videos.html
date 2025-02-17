@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tutorial videos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-nav {
+            display: flex !important;
+        }
+        .navbar-nav .nav-item {
+            display: block !important;
+            visibility: visible !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" onload="loadData()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">TechValley</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="videos.html">Videos</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="assessment.html">Assessments</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../ortho.pptx" download>Download PowerPoint</a></li>
+                            <li><a class="dropdown-item" href="powerpoint.html">open in google docs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">help</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+</nav>
+
+
+    <div class="mt-20 container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <!-- Video Cards -->
+        <div class="bg-white p-4 rounded-lg shadow-md transition-all duration-300 video-card" data-video-id="1">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/O4Jy-DD8LR8" frameborder="0" allowfullscreen></iframe>
+            <h4 class="font-semibold text-gray-800">Section 1</h4>
+            <div class="flex items-center space-x-4 mt-4">
+                <button onclick="toggleLike(this, 1)" class="text-gray-600 hover:text-blue-500"><i class="fas fa-thumbs-up"></i> Like (<span class="like-count">0</span>)</button>
+                <button onclick="showComments(this.closest('.video-card'))" class="text-gray-600 hover:text-blue-500"><i class="fas fa-comment"></i> Comment (<span class="comment-count">0</span>)</button>
+            </div>
+            <div class="comment-section hidden mt-4 border-t pt-2">
+                <input type="text" class="border p-2 w-full rounded-lg" placeholder="Write a comment here..." onkeypress="if(event.key === 'Enter') addComment(this, 1)">
+                <div class="comment-list mt-2"></div>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow-md transition-all duration-300 video-card" data-video-id="2">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/YkEcrN6mtDg" frameborder="0" allowfullscreen></iframe>
+            <h4 class="font-semibold text-gray-800">Section 2</h4>
+            <div class="flex items-center space-x-4 mt-4">
+                <button onclick="toggleLike(this, 2)" class="text-gray-600 hover:text-blue-500"><i class="fas fa-thumbs-up"></i> Like (<span class="like-count">0</span>)</button>
+                <button onclick="showComments(this.closest('.video-card'))" class="text-gray-600 hover:text-blue-500"><i class="fas fa-comment"></i> Comment (<span class="comment-count">0</span>)</button>
+            </div>
+            <div class="comment-section hidden mt-4 border-t pt-2">
+                <input type="text" class="border p-2 w-full rounded-lg" placeholder="Write a comment..." onkeypress="if(event.key === 'Enter') addComment(this, 2)">
+                <div class="comment-list mt-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadData() {
+            document.querySelectorAll('.video-card').forEach(card => {
+                let videoId = card.dataset.videoId;
+                let likes = localStorage.getItem(`likes_${videoId}`) || 0;
+                let comments = JSON.parse(localStorage.getItem(`comments_${videoId}`)) || [];
+
+                card.querySelector('.like-count').innerText = likes;
+                card.querySelector('.comment-count').innerText = comments.length;
+
+                let commentList = card.querySelector('.comment-list');
+                comments.forEach(commentData => {
+                    let comment = createCommentElement(commentData.text, videoId);
+                    commentList.appendChild(comment);
+                });
+            });
+        }
+
+        function toggleLike(button, videoId) {
+            let likes = parseInt(localStorage.getItem(`likes_${videoId}`) || 0);
+
+            if (button.innerHTML.includes('Like')) {
+                likes++;
+                button.innerHTML = `<i class="fas fa-thumbs-up"></i> Liked (<span class="like-count">${likes}</span>)`;
+                button.classList.add('text-blue-500');
+            } else {
+                likes--;
+                button.innerHTML = `<i class="fas fa-thumbs-up"></i> Like (<span class="like-count">${likes}</span>)`;
+                button.classList.remove('text-blue-500');
+            }
+
+            localStorage.setItem(`likes_${videoId}`, likes);
+            document.querySelector(`[data-video-id="${videoId}"] .like-count`).innerText = likes;
+        }
+
+        function showComments(videoCard) {
+            let commentSection = videoCard.querySelector(".comment-section");
+            commentSection.classList.toggle("hidden");
+        }
+
+        function addComment(input, videoId) {
+            let commentText = input.value.trim();
+            if (commentText === "") return;
+
+            let commentList = document.querySelector(`[data-video-id="${videoId}"] .comment-list`);
+            let comment = createCommentElement(commentText, videoId);
+            commentList.appendChild(comment);
+
+            let comments = JSON.parse(localStorage.getItem(`comments_${videoId}`)) || [];
+            comments.push({ text: commentText });
+            localStorage.setItem(`comments_${videoId}`, JSON.stringify(comments));
+
+            document.querySelector(`[data-video-id="${videoId}"] .comment-count`).innerText = comments.length;
+            input.value = "";
+        }
+
+        function createCommentElement(text, videoId) {
+            let comment = document.createElement("div");
+            comment.className = "p-2 bg-gray-100 rounded-lg my-2";
+            comment.innerHTML = `
+                <p class="font-semibold text-gray-700">User</p>
+                <p class="text-gray-600">${text}</p>
+                <button onclick="replyToComment(this, ${videoId})" class="text-sm text-blue-500">Reply</button>
+                <div class="reply-list ml-4 mt-2"></div>
+            `;
+            return comment;
+        }
+
+        function replyToComment(button, videoId) {
+            let replyInput = document.createElement("input");
+            replyInput.type = "text";
+            replyInput.className = "border p-1 w-full rounded-lg mt-2";
+            replyInput.placeholder = "Write a reply...";
+            replyInput.onkeypress = function (event) {
+                if (event.key === "Enter") {
+                    let reply = document.createElement("p");
+                    reply.className = "text-sm text-gray-600 ml-4";
+                    reply.innerText = replyInput.value;
+                    button.nextElementSibling.appendChild(reply);
+                    replyInput.remove();
+                }
+            };
+            button.parentNode.appendChild(replyInput);
+        }
+    </script>
+ <!-- Footer Section -->
+ <footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Us Section -->
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email: ingotse@proton.me</p>
+                <p>Phone: +254101919385</p>
+            
+            </div>
+
+            <!-- Follow Us on Social Media -->
+            <div class="col-md-4">
+                <h5>Follow Us on Social Media</h5>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                <a href="https://wa.link/yyiyn6" class="text-white me-3"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                <a href="https://www.youtube.com/channel/UC1FA3vXiSHQmWzATrn5z2Nw" class="text-white me-3"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <!-- About Us Link -->
+                    <li><a href="#" id="openAboutModal" class="text-white">About Us</a></li>
+                    <li><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="bg-light">
+
+        <!-- Copyright -->
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 TechValley. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div>
+<!--terms modal starts here-->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3>Terms of Service</h3>
+            <p>Welcome to our tutorial website! By using our services, you agree to the following terms:</p>
+            
+            <h5>1. Use of Content</h5>
+            <p>All tutorials, videos, and resources provided on this website are for educational purposes only. You may use the content for personal learning but cannot redistribute or sell any materials without permission.</p>
+
+            <h5>2. Account Responsibility</h5>
+            <p>When creating an account, you are responsible for maintaining the confidentiality of your credentials. You are also responsible for any activities under your account.</p>
+
+            <h5>3. Community Guidelines</h5>
+            <p>We encourage respectful and constructive interactions. Harassment, hate speech, or spamming will not be tolerated, and accounts engaging in such behavior may be suspended or banned.</p>
+
+            <h5>4. Limitation of Liability</h5>
+            <p>While we strive to provide accurate and up-to-date content, we do not guarantee the completeness or accuracy of all materials. We are not liable for any issues resulting from the application of the knowledge gained from this site.</p>
+
+            <h5>5. Changes to Terms</h5>
+            <p>We may update these terms occasionally. Continued use of the website after updates means you accept the new terms.</p>
+
+            <p>If you have any questions, feel free to  
+                <button onclick="window.location.href='contact.html'" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Get Help
+                </button>
+            </p>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+            <button type="button" class="btn-close section-heading" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body section-heading">
+            <p>Your privacy is important to us. This website collects minimal user data and ensures that all information is handled securely. By using this website, you agree to the collection and use of information in accordance with this policy.</p>
+            <p>We do not share or sell user data to third parties. If you have any concerns, feel free to contact us.</p>
+        </div>
+        <div class="modal-footer section-heading">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal container for about us -->
+<div id="aboutModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+<div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+    <button id="closeAboutModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
+    
+    <h2 class="text-2xl font-bold text-center text-blue-600 mb-4">About Us</h2>
+    <p class="text-gray-700 mb-4">
+        We are a passionate team dedicated to providing high-quality educational resources and training materials.
+        Our mission is to empower learners with knowledge and skills to excel in their respective fields.
+    </p>
+    <h3 class="text-lg font-bold text-green-600">Contact Us</h3>
+    <p class="text-gray-700"><strong>Phone:</strong> +254101919385</p>
+    <p class="text-gray-700"><strong>Email:</strong> <a href="mailto:ingotse@proton.me" class="text-blue-500">Email:ingotse@proton.me</a></p>
+</div>
+</div>
+
+<script>
+document.getElementById("openAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.remove("hidden");
+});
+
+document.getElementById("closeAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.add("hidden");
+});
+</script>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="btn btn-primary position-fixed rounded-circle shadow-lg" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up text-white"></i>
+</button>
+
+<script>
+    // Show the button when scrolling starts
+    window.onscroll = function () {
+        document.getElementById("backToTop").style.display = "block";
+    };
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+
+<!-- Add Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+    #backToTop {
+        display: none; /* Initially hidden */
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        bottom: 20%;
+        right: 2%;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
