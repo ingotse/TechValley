@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Assessment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+.navbar-nav {
+    display: flex !important;
+}
+.navbar-nav .nav-item {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.section-heading {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: hsl(138, 84%, 47%);
+            text-align: center;
+            font-size: 35px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        body{
+            padding-top: 70px;
+        }
+        
+    
+        .rounded-toolbar {
+            border-radius: 10px;
+            background-color: hwb(273 5% 20%); 
+            box-shadow: 0 2px 5px rgba(17, 16, 16, 0.1);
+            max-width: max-content;
+
+        }
+        
+
+    </style>
+
+
+
+</head>
+<body class="bg-cover bg-center bg-white p-6">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">CAD TutorialsPoint</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="videos.html">Videos</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Assessments
+                        </a>
+                        <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="assessment1.html" download>Assessment 1</a></li>
+                            <li><a class="dropdown-item" href="assessment2.html">Assessment 2</a></li>
+                        </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../ortho.pptx" download>Download PowerPoint</a></li>
+                            <li><a class="dropdown-item" href="powerpoint.html">open in google docs</a></li>
+                            <li><a class="dropdown-item" href="../3d.zip" download>Download 3D zip files</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">help</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+</nav>
+
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Assessment Questions</h1>
+        <div id="questions-container">
+            <!-- Question 1 -->
+            <div class="mb-4">
+                <p class="font-semibold">1.What does orthographic projection primarily represent?</p>
+                <div>
+                    <input type="radio" name="q1" value="A"> <label>A) 3D objects in perspective</label><br>
+                    <input type="radio" name="q1" value="B"> <label>B) 3D objects on a 2D plane </label><br>
+                    <input type="radio" name="q1" value="C"> <label>C) Shadow projections of objects </label><br>
+                    <input type="radio" name="q1" value="D"> <label>D) Transparent object models</label><br>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-4">
+                <p class="font-semibold">2.How many primary views are typically used in orthographic projection?</p>
+                <div>
+                    <input type="radio" name="q2" value="A"> <label>A)1</label><br>
+                    <input type="radio" name="q2" value="B"> <label>B)2</label><br> 
+                    <input type="radio" name="q2" value="C"> <label>C)3</label><br>
+                    <input type="radio" name="q2" value="D"> <label>D)4</label><br>
+                    
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-4">
+                <p class="font-semibold">3.Which of the following is NOT one of the principal views in orthographic projection?</p>
+                
+                
+                <div>
+                    <input type="radio" name="q3" value="A"> <label>A)Front view</label><br>
+                    <input type="radio" name="q3" value="B"> <label>B)Top view</label><br>
+                    <input type="radio" name="q3" value="C"> <label>C)Oblique view</label><br>
+                    <input type="radio" name="q3" value="D"> <label>D)Right-side view</label><br>
+        
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-4">
+                <p class="font-semibold">4.What angle is typically used between axes in first-angle orthographic projection?</p>
+                <div>
+                    <input type="radio" name="q4" value="A"> <label>A)30°</label><br>
+                    <input type="radio" name="q4" value="B"><label>B)60°</label><br>
+                    <input type="radio" name="q4" value="C"> <label>C)90°</label><br>
+                    <input type="radio" name="q4" value="D"> <label>D)120°</label><br>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-4">
+                <p class="font-semibold">5. What distinguishes first-angle projection from third-angle projection?</p>
+                <div>
+                    <input type="radio" name="q5" value="A"> <label>A)viewing direction</label><br>
+                    <input type="radio" name="q5" value="B"> <label>B)position of the object relative to the plane</label><br>
+                    <input type="radio" name="q5" value="C"> <label>C)Types of the objects represented</label><br>
+                    <input type="radio" name="q5" value="D"> <label>D)None of the above</label><br>
+                    
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-4">
+                <p class="font-semibold">6.In which quadrant is the object placed in first-angle projection? </p>
+                <div>
+                    <input type="radio" name="q6" value="A"> <label>A)First quadrant</label><br>
+                    <input type="radio" name="q6" value="B"> <label>B)second quadrant</label><br>
+                    <input type="radio" name="q6" value="C"> <label>C)third quadrant</label><br>
+                    <input type="radio" name="q6" value="D"> <label>D)fourth quadrant</label><br>
+                    
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-4">
+                <p class="font-semibold">7. Which international standard is commonly followed for orthographic projections? </p>
+                <div>
+                    <input type="radio" name="q7" value="A"> <label>A)ISO 9001</label><br>
+                    <input type="radio" name="q7" value="B"> <label>B)ISO 128</label><br>
+                    <input type="radio" name="q7" value="C"> <label>C)ISO 216</label><br>
+                    <input type="radio" name="q7" value="D"> <label>D)ISO 476</label><br>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="mb-4">
+                <p class="font-semibold">8.What do dashed lines in orthographic projection typically represent?</p>
+                <div>
+                    <input type="radio" name="q8" value="A"> <label> A)Visible edges </label><br>
+                    <input type="radio" name="q8" value="B"> <label> B)Hidden edges </label><br>
+                    <input type="radio" name="q8" value="C"> <label>C)Symmetrical edges </label><br>
+                    <input type="radio" name="q8" value="D"> <label>D)curves</label><br>
+                </div>
+            </div>
+ <!-- Question 9 -->
+            <div class="mb-4">
+                <p class="font-semibold">9.When drawing a front view, which dimensions are shown? </p>
+                <div>
+                    <input type="radio" name="q9" value="A"> <label>A)Height and width </label><br>
+                    <input type="radio" name="q9" value="B"> <label>B)Height and depth </label><br>
+                    <input type="radio" name="q9" value="C"> <label>C)Width and depth </label><br>
+                    <input type="radio" name="q9" value="D"> <label>D)None of the above</label><br>
+                </div>
+            </div>
+ <!-- Question 10-->
+            <div class="mb-4">
+                <p class="font-semibold">10.What tool is essential for creating precise orthographic projections? 
+                    A) Scale</p>
+                <div>
+                    <input type="radio" name="q10" value="A"> <label>A)Scale</label><br>
+                    <input type="radio" name="q10" value="B"> <label>B)Protractor</label><br>
+                    <input type="radio" name="q10" value="C"> <label>C)T-square </label><br>
+                    <input type="radio" name="q10" value="D"> <label>D)All of the above</label><br>
+                </div>
+            </div>
+<!-- Question 11 -->
+
+            <div class="mb-4">
+                <p class="font-semibold">11.In third-angle projection, the top view is placed: </p>
+                <div>
+                    <input type="radio" name="q11" value="A"> <label>A)Above the front view </label><br>
+                    <input type="radio" name="q11" value="B"> <label>B)Below the front view</label><br>
+                    <input type="radio" name="q11" value="C"> <label>C)Beside the front view </label><br>
+                    <input type="radio" name="q11" value="D"> <label>D)Opposite the right-side view</label><br>
+                </div>
+            </div>
+ <!-- Question 12 -->
+            <div class="mb-4">
+                <p class="font-semibold">12. What type of projection results in no vanishing points?</p>
+                <div>
+                    <input type="radio" name="q12" value="A"> <label>A)Isometric projection </label><br>
+                    <input type="radio" name="q12" value="B"> <label>B)Orthographic projection </label><br>
+                    <input type="radio" name="q12" value="C"> <label>C)Perspective projection </label><br>
+                    <input type="radio" name="q12" value="D"> <label>D)Oblique projection</label><br>
+                </div>
+            </div>
+ <!-- Question 13 -->
+            <div class="mb-4">
+                <p class="font-semibold">13. Which symbol is used to indicate first-angle projection in technical drawings?</p>
+                <div>
+                    <input type="radio" name="q13" value="A"> <label>A)A cone</label><br>
+                    <input type="radio" name="q13" value="B"> <label>B)A cube </label><br>
+                    <input type="radio" name="q13" value="C"> <label>C)A truncated cone</label><br>
+                    <input type="radio" name="q13" value="D"> <label>D)A cylinder</label><br>
+                </div>
+            </div>
+ <!-- Question 14 -->
+            <div class="mb-4">
+                <p class="font-semibold">14. Why are multiple views used in orthographic projection?</p>
+                <div>
+                    <input type="radio" name="q14" value="A"> <label>A)To show color and texture </label><br>
+                    <input type="radio" name="q14" value="B"> <label>B)To provide all details from different perspectives </label><br>
+                    <input type="radio" name="q14" value="C"> <label>C)To reduce drawing time </label><br>
+                    <input type="radio" name="q14" value="D"> <label>D)To avoid using scales</label><br>
+                </div>
+            </div>
+ <!-- Question 15 -->
+            <div class="mb-4">
+                <p class="font-semibold">15. Which of the following is the primary purpose of orthographic projection? </p>
+                <div>
+                    <input type="radio" name="q15" value="A"> <label>A)Artistic representation</label><br>
+                    <input type="radio" name="q15" value="B"> <label>B)Design simplification </label><br>
+                    <input type="radio" name="q15" value="C"> <label>C)Accurate technical communication </label><br>
+                    <input type="radio" name="q15" value="D"> <label>D)Manufacturing cost estimation</label><br>
+                </div>
+            </div>
+        </div>
+        
+        <button id="submit-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+    </div>
+
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', () => {
+            const answers = {
+                q1: 'B',
+                q2: 'C',
+                q3: 'C',
+                q4: 'C',
+                q5: 'B',
+                q6: 'A',
+                q7: 'B',
+                q8: 'B',
+                q9: 'A',
+                q10: 'D',
+                q11: 'A',
+                q12: 'B',
+                q13: 'C',
+                q14: 'B',
+                q15:'C'
+            };
+
+            let correctCount = 0;
+            const results = [];
+            const questionElements = document.querySelectorAll('#questions-container > div');
+
+            questionElements.forEach((questionDiv, index) => {
+                const questionNumber = index + 1;
+                const questionText = questionDiv.querySelector('.font-semibold').textContent;
+                const selectedOption = questionDiv.querySelector(`input[name="q${questionNumber}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : 'No answer';
+                const isCorrect = userAnswer === answers[`q${questionNumber}`];
+
+                if (isCorrect) {
+                    correctCount++;
+                }
+
+                results.push({
+                    question: questionText,
+                    userAnswer: userAnswer,
+                    correctAnswer: answers[`q${questionNumber}`],
+                    isCorrect: isCorrect
+                });
+            });
+
+            const resultsHTML = `
+                <div class="results-container">
+                    <h2 class="text-2xl font-bold mb-4">Assessment Results</h2>
+                    <p class="mb-6 text-lg">Score: ${correctCount}/${questionElements.length}</p>
+                    
+                    <div class="answers-list">
+                        ${results.map((result, index) => `
+                            <div class="mb-6 p-4 rounded-lg ${result.isCorrect ? 'bg-green-50' : 'bg-red-50'}">
+                                <p class="font-semibold mb-2">Question ${index + 1}: ${result.question}</p>
+                                <p class="${result.isCorrect ? 'text-green-600' : 'text-red-600'}">
+                                    Your answer: ${result.userAnswer}
+                                </p>
+                                ${!result.isCorrect ? `
+                                    <p class="text-green-600">Correct answer: ${result.correctAnswer}</p>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <button onclick="location.reload()" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+                        Try Again!
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('questions-container').innerHTML = resultsHTML;
+            document.getElementById('submit-btn').remove();
+        });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Us Section -->
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email:Ingotse@proton.me</p>
+                <p>Phone: +254101919385</p>
+
+            </div>
+
+            <!-- Follow Us on Social Media -->
+            <div class="col-md-4">
+                <h5>Follow Us on Social Media</h5>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                <a href="https://youtube.com/@tech-o4x1c?si=nB0R0wlwaTyAHBj8" class="text-white me-3"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <!-- About Us Link -->
+                    <li><a href="#" id="openAboutModal" class="text-white">About Us</a></li>
+                    <li><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="bg-light">
+
+        <!-- Copyright -->
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 CADPOINT TUTORIALS. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div>
+<!--terms modal starts here-->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h3>Terms of Service</h3>
+            <p>Welcome to our tutorial website! By using our services, you agree to the following terms:</p>
+            
+            <h5>1. Use of Content</h5>
+            <p>All tutorials, videos, and resources provided on this website are for educational purposes only. You may use the content for personal learning but cannot redistribute or sell any materials without permission.</p>
+
+            <h5>2. Account Responsibility</h5>
+            <p>When creating an account, you are responsible for maintaining the confidentiality of your credentials. You are also responsible for any activities under your account.</p>
+
+            <h5>3. Community Guidelines</h5>
+            <p>We encourage respectful and constructive interactions. Harassment, hate speech, or spamming will not be tolerated, and accounts engaging in such behavior may be suspended or banned.</p>
+
+            <h5>4. Limitation of Liability</h5>
+            <p>While we strive to provide accurate and up-to-date content, we do not guarantee the completeness or accuracy of all materials. We are not liable for any issues resulting from the application of the knowledge gained from this site.</p>
+
+            <h5>5. Changes to Terms</h5>
+            <p>We may update these terms occasionally. Continued use of the website after updates means you accept the new terms.</p>
+
+            <p>If you have any questions, feel free to  
+                <button onclick="window.location.href='contact.html'" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Get Help
+                </button>
+            </p>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+            <button type="button" class="btn-close section-heading" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body section-heading">
+            <p>Your privacy is important to us. This website collects minimal user data and ensures that all information is handled securely. By using this website, you agree to the collection and use of information in accordance with this policy.</p>
+            <p>We do not share or sell user data to third parties. If you have any concerns, feel free to contact us.</p>
+        </div>
+        <div class="modal-footer section-heading">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal container for about us -->
+<div id="aboutModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+<div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+    <button id="closeAboutModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
+    
+    <h2 class="text-2xl font-bold text-center text-blue-600 mb-4">About Us</h2>
+    <p class="text-gray-700 mb-4">
+        We are a passionate team dedicated to providing high-quality educational resources and training materials.
+        Our mission is to empower learners with knowledge and skills to excel in their respective fields.
+    </p>
+    <h3 class="text-lg font-bold text-green-600">Contact Us</h3>
+    <p class="text-gray-700"><strong>Phone:</strong> +254101919385</p>
+    <p class="text-gray-700"><strong>Email:</strong> <a href="mailto:Ingotse@proton.me" class="text-blue-500">Ingotse@proton.me</a></p>
+</div>
+</div>
+
+<script>
+document.getElementById("openAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.remove("hidden");
+});
+
+document.getElementById("closeAboutModal").addEventListener("click", () => {
+    document.getElementById("aboutModal").classList.add("hidden");
+});
+</script>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="btn btn-primary position-fixed rounded-circle shadow-lg" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up text-white"></i>
+</button>
+
+<script>
+    // Show the button when scrolling starts
+    window.onscroll = function () {
+        document.getElementById("backToTop").style.display = "block";
+    };
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+
+<!-- Add Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+    #backToTop {
+        display: none; /* Initially hidden */
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        bottom: 20%;
+        right: 2%;
+    }
+</style>
+</body>
+</html>
